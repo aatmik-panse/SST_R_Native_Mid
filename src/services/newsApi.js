@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-// Replace with your API Key
-const API_KEY = '8260e656fefc49c5a6d1a9fb2af57b0a'; // Using a demo key often found in docs, but user should replace it. 
-// Actually I'll use a placeholder or a mock if it fails.
-// For now, let's assume the user needs to provide one, but I'll add a mock fallback for safety.
+const API_KEY = process.env.API_KEY;
+
 
 const BASE_URL = 'https://newsapi.org/v2';
 
@@ -13,7 +11,7 @@ export const fetchNewsByCity = async (city) => {
             params: {
                 q: city,
                 sortBy: 'publishedAt',
-                apiKey: API_KEY, // If this key is invalid, we might need a backup
+                apiKey: API_KEY,
                 language: 'en',
             },
         });
